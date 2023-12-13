@@ -15,5 +15,12 @@ int main(){
     // 6 continue
     std::cout << "6: Continue" << std::endl;
 
+    std::cout << "========================" << std::endl;
+    std::cout << "Select from 1-6" << std::endl;
+    
+    int userOption;
+    std::cin >> userOption;
+    std::cout << "You select " << userOption << std::endl;
+
     return 0;
 }
