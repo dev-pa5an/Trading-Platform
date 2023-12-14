@@ -1,11 +1,8 @@
 #include <iostream>
 
-int main(){
-    
-    while(true){
+void printMenu(){
 
-    
-        // 1 print help
+     // 1 print help
         std::cout << "1: Print help" << std::endl;
         // 2 print exchange stats
         std::cout << "2: Print exchange stats" << std::endl;
@@ -19,13 +16,22 @@ int main(){
         std::cout << "6: Continue" << std::endl;
 
         std::cout << "========================" << std::endl;
-        std::cout << "Type in 1-6" << std::endl;
-        
-        int userOption;
-        std::cin >> userOption;
-        std::cout << "You select " << userOption << std::endl;
+}
 
-        if (userOption == 1){
+int getuserOption(){
+
+    std::cout << "Type in 1-6" << std::endl;
+        
+    int userOption;
+    std::cin >> userOption;
+    std::cout << "You select " << userOption << std::endl;
+
+    return userOption;
+}
+
+void processUserOption(int userOption){
+
+    if (userOption == 1){
             std::cout << "Help - choose options from the menu" << std::endl;
             std::cout << "and follow the on screen instructions." << std::endl;
         }
@@ -47,6 +53,15 @@ int main(){
         if (userOption < 1 ||  userOption > 6){
             std::cout << "Invalid Option - Please choose a number between 1-6" << std::endl;
         }
+}
+
+int main(){
+    
+    while(true){
+        printMenu();
+        int userOption = getuserOption();
+        processUserOption(userOption);
+        
     }
 
     return 0;
