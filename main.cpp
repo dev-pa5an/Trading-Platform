@@ -3,19 +3,19 @@
 void printMenu()
 {
      // 1 print help
-        std::cout << "1: Print help" << std::endl;
-        // 2 print exchange stats
-        std::cout << "2: Print exchange stats" << std::endl;
-        // 3 make an offer
-        std::cout << "3: Place an ask" << std::endl;
-        // 4 make a bid 
-        std::cout << "4: Place a bid" << std::endl;
-        // 5 print wallet
-        std::cout << "5: Print wallet" << std::endl;
-        // 6 continue
-        std::cout << "6: Continue" << std::endl;
+    std::cout << "1: Print help" << std::endl;
+    // 2 print exchange stats
+    std::cout << "2: Print exchange stats" << std::endl;
+    // 3 make an offer
+    std::cout << "3: Place an ask" << std::endl;
+    // 4 make a bid 
+    std::cout << "4: Place a bid" << std::endl;
+    // 5 print wallet
+    std::cout << "5: Print wallet" << std::endl;
+    // 6 continue
+    std::cout << "6: Continue" << std::endl;
 
-        std::cout << "========================" << std::endl;
+    std::cout << "========================" << std::endl;
 }
 
 int getuserOption()
@@ -34,7 +34,7 @@ void printHelp()
 }
 void printMarketStats()
 {
-    std::cout << "Exchange Stats: View statistics related to the exchange." << std::endl;
+    std::cout << "Market looks good." << std::endl;
 }
 void enterOffer()
 {
