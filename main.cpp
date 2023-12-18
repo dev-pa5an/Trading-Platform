@@ -12,21 +12,30 @@ void enterBid();
 void printWallet();
 void goToNextWallet();
 
-int main(){
-    
-    while(true)
-    {
-        //specifying a new data type
-        enum class OrderBookType{bid,ask}; 
+//specifying a new data type for bid,ask
+enum class OrderBookType{bid,ask}; 
 
-        //Declaring variables
+class OrderBookEntry
+{
+    public:
+        double price;
+        double amount;
+        std::string timestamp;
+        std::string product;
+        OrderBookType orderType;
+};
+
+int main()
+{
+    //Declaring variables
         std::vector<double> prices;
         std::vector<double> amounts;
         std::vector<std::string> timestamp;
         std::vector<std::string> product;
         std::vector<OrderBookType> orderType;
-
-
+    
+    while(true)
+    {
         printMenu();
         int userOption = getuserOption();
         processUserOption(userOption);  
