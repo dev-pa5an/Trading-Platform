@@ -17,14 +17,14 @@ int main(){
     while(true)
     {
         //specifying a new data type
-        enum class orderBookType{bid,ask}; 
+        enum class OrderBookType{bid,ask}; 
 
         //Declaring variables
         std::vector<double> prices;
         std::vector<double> amounts;
         std::vector<std::string> timestamp;
         std::vector<std::string> product;
-        std::vector<orderBookType> orderType;
+        std::vector<OrderBookType> orderType;
 
 
         printMenu();
