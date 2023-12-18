@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 void printMenu();
 int getuserOption();
@@ -18,11 +19,12 @@ int main(){
         //specifying a new data type
         enum class orderBookType{bid,ask}; 
 
-        double price;
-        double amount;
-        std::string timestamp{"2020/03/17 17:01:24.884492"}; 
-        std::string product{"ETH/BTC"};
-        orderBookType orderType = orderBookType::bid;
+        //Declaring variables
+        std::vector<double> prices;
+        std::vector<double> amounts;
+        std::vector<std::string> timestamp;
+        std::vector<std::string> product;
+        std::vector<orderBookType> orderType;
 
 
         printMenu();
