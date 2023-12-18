@@ -15,12 +15,13 @@ int main(){
     
     while(true)
     {
-        std::string timestamp{"2020/03/17 17:01:24.884492"}; 
-        std::string product{"ETH/BTC"};
-        // std::string orderType{"bid"};
-
         //specifying a new data type
         enum class orderBookType{bid,ask}; 
+
+        double price;
+        double amount;
+        std::string timestamp{"2020/03/17 17:01:24.884492"}; 
+        std::string product{"ETH/BTC"};
         orderBookType orderType = orderBookType::bid;
 
 
