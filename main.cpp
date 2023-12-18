@@ -36,7 +36,7 @@ void printMarketStats()
 {
     std::cout << "Market looks good." << std::endl;
 }
-void enterOffer()
+void enterAsk()
 {
     std::cout << "Place an Ask: Enter details to make an ask on the exchange." << std::endl;
 }
@@ -71,7 +71,7 @@ void processUserOption(int userOption){
     }
     if (userOption == 4)
     {
-        enterBid();
+        enterAsk();
     }
     if (userOption == 5)
     {
