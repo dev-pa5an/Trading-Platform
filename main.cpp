@@ -1,4 +1,31 @@
 #include <iostream>
+#include <string>
+
+void printMenu();
+int getuserOption();
+void printHelp();
+void printMarketStats();
+void enterAsk();
+void processUserOption(int userOption);
+void enterBid();
+void printWallet();
+void goToNextWallet();
+
+int main(){
+    
+    while(true)
+    {
+        std::string timestamp{"2020/03/17 17:01:24.884492"}; 
+        std::string product{"ETH/BTC"};
+        std::string orderType{"bid"};
+
+        printMenu();
+        int userOption = getuserOption();
+        processUserOption(userOption);  
+    }
+
+    return 0;
+}
 
 void printMenu()
 {
@@ -67,7 +94,7 @@ void processUserOption(int userOption){
     }
     if (userOption == 3)
     {
-        enterOffer();
+        enterBid();
     }
     if (userOption == 4)
     {
@@ -85,16 +112,4 @@ void processUserOption(int userOption){
     {
         std::cout << "Invalid Option - Please choose a number between 1-6" << std::endl;
     }
-}
-
-int main(){
-    
-    while(true)
-    {
-        printMenu();
-        int userOption = getuserOption();
-        processUserOption(userOption);  
-    }
-
-    return 0;
 }
