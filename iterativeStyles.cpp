@@ -40,6 +40,8 @@ int main()
 
     //push an instance of the 'OrderBookEntry' class to the 'orders'
     orders.push_back(OrderBookEntry{23594,0.00000033,"2020/03/17 17:01:24.884492","DOGE/BTC",OrderBookType::ask});
+    orders.push_back(OrderBookEntry{25000,0.00000078,"2020/03/18 17:01:24.884492","DOGE/BTC",OrderBookType::bid});
+    orders.push_back(OrderBookEntry{25600,0.00000093,"2020/03/19 17:01:24.884492","DOGE/BTC",OrderBookType::ask});
 
     std::cout << orders[0].price << std::endl;
 
@@ -47,6 +49,12 @@ int main()
     {
         std::cout << order.price << std::endl;
     }
+    //using ampersand make it more efficint as it will directly reference to the object instead of copy it 
+    for(OrderBookEntry& order:orders)
+    {
+        std::cout << order.price << std::endl;
+    }
+
     for(unsigned int i=0;i<orders.size();++i)
     {
         std::cout << orders[i].price << std::endl;

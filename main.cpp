@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "OrderBookEntry.h"
 
 void printMenu();
 int getuserOption();
@@ -12,45 +13,9 @@ void enterBid();
 void printWallet();
 void goToNextWallet();
 
-//specifying a new data type for bid,ask
-enum class OrderBookType{bid,ask}; 
-
-//Define the class OrderBookEntry
-class OrderBookEntry
-{
-    public:
-        // Constructor with member initialization list
-        OrderBookEntry(double price,
-                    double amount,
-                    std::string timestamp, 
-                    std::string product,
-                    OrderBookType orderType)
-        : price(price),
-        amount(amount),
-        timestamp(timestamp), 
-        product(product),
-        orderType(orderType)
-        {
-            // Constructor body 
-        }
-
-    public:
-        double price;
-        double amount;
-        std::string timestamp;
-        std::string product;
-        OrderBookType orderType;
-};
-
 
 int main()
 {
-    //Declaring variables using vector
-        // std::vector<double> prices;
-        // std::vector<double> amounts;
-        // std::vector<std::string> timestamp;
-        // std::vector<std::string> product;
-        // std::vector<OrderBookType> orderType;
     
     // while(true)
     // {
