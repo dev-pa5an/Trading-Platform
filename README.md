@@ -8,3 +8,9 @@ Best way to do this is not to difine the enum class in the main function but add
 we have lot of data to analyze 
 so we need a data structure to access these data
 introducing vectors
+
+Organize the OrderBookEntry class
+OrderBookEntry.h and OrderBookEntry.cpp
+
+Organize the functions
+merkelMain.h and merkelMain.cpp
