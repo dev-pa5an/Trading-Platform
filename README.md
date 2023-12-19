@@ -12,5 +12,5 @@ introducing vectors
 Organize the OrderBookEntry class
 OrderBookEntry.h and OrderBookEntry.cpp
 
-Organize the functions
+Refactoriing the functions - Encapsulation
 merkelMain.h and merkelMain.cpp
