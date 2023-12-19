@@ -18,44 +18,47 @@ enum class OrderBookType{bid,ask};
 //Define the class OrderBookEntry
 class OrderBookEntry
 {
-    //Creating the constructor most efficint way
-    OrderBookEntry( double _price,
-                    double _amount,
-                    std::string _timesamp,
-                    std::string _product,
-                    OrderBookType _orderType)
-    :   price(_price),
-        amount(_amount),
-        timestamp(_timesamp),
-        product(_product),
-        orderType(_orderType)
+public:
+    // Constructor with member initialization list
+    OrderBookEntry(double price,
+                   double amount,
+                   std::string timestamp, 
+                   std::string product,
+                   OrderBookType orderType)
+    : price(price),
+      amount(amount),
+      timestamp(timestamp), 
+      product(product),
+      orderType(orderType)
     {
-
+        // Constructor body 
     }
 
-    public:
-        double price;
-        double amount;
-        std::string timestamp;
-        std::string product;
-        OrderBookType orderType;
+private:
+    double price;
+    double amount;
+    std::string timestamp;
+    std::string product;
+    OrderBookType orderType;
 };
+
 
 int main()
 {
     //Declaring variables using vector
-        std::vector<double> prices;
-        std::vector<double> amounts;
-        std::vector<std::string> timestamp;
-        std::vector<std::string> product;
-        std::vector<OrderBookType> orderType;
+        // std::vector<double> prices;
+        // std::vector<double> amounts;
+        // std::vector<std::string> timestamp;
+        // std::vector<std::string> product;
+        // std::vector<OrderBookType> orderType;
     
-    while(true)
-    {
-        printMenu();
-        int userOption = getuserOption();
-        processUserOption(userOption);  
-    }
+    // while(true)
+    // {
+    //     printMenu();
+    //     int userOption = getuserOption();
+    //     processUserOption(userOption);  
+    // }
+
 
     return 0;
 }
