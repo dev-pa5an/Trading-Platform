@@ -15,8 +15,24 @@ void goToNextWallet();
 //specifying a new data type for bid,ask
 enum class OrderBookType{bid,ask}; 
 
+//Define the class OrderBookEntry
 class OrderBookEntry
 {
+    //Creating the constructor most efficint way
+    OrderBookEntry( double _price,
+                    double _amount,
+                    std::string _timesamp,
+                    std::string _product,
+                    OrderBookType _orderType)
+    :   price(_price),
+        amount(_amount),
+        timestamp(_timesamp),
+        product(_product),
+        orderType(_orderType)
+    {
+
+    }
+
     public:
         double price;
         double amount;
@@ -27,7 +43,7 @@ class OrderBookEntry
 
 int main()
 {
-    //Declaring variables
+    //Declaring variables using vector
         std::vector<double> prices;
         std::vector<double> amounts;
         std::vector<std::string> timestamp;
