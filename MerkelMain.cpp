@@ -1,6 +1,11 @@
 #include <iostream>
 #include "MerkelMain.h"
 
+MerkelMain::MerkelMain()
+{
+
+}
+
 void MerkelMain::printMenu()
 {
      // 1 print help
