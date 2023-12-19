@@ -1,10 +1,25 @@
-#include <iostream>
 #include "MerkelMain.h"
+#include <iostream>
+
 
 MerkelMain::MerkelMain()
 {
 
 }
+
+void MerkelMain::init()
+{
+    while (true)
+    {
+        printMenu();
+        int input;
+        input = getuserOption();
+        processUserOption(input);
+    }
+    
+    
+}
+
 
 void MerkelMain::printMenu()
 {
