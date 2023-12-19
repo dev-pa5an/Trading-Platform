@@ -1,4 +1,4 @@
-//only the specifications are here
+#pragma once 
 
 #include <string>
 
