@@ -18,28 +18,28 @@ enum class OrderBookType{bid,ask};
 //Define the class OrderBookEntry
 class OrderBookEntry
 {
-public:
-    // Constructor with member initialization list
-    OrderBookEntry(double price,
-                   double amount,
-                   std::string timestamp, 
-                   std::string product,
-                   OrderBookType orderType)
-    : price(price),
-      amount(amount),
-      timestamp(timestamp), 
-      product(product),
-      orderType(orderType)
-    {
-        // Constructor body 
-    }
+    public:
+        // Constructor with member initialization list
+        OrderBookEntry(double price,
+                    double amount,
+                    std::string timestamp, 
+                    std::string product,
+                    OrderBookType orderType)
+        : price(price),
+        amount(amount),
+        timestamp(timestamp), 
+        product(product),
+        orderType(orderType)
+        {
+            // Constructor body 
+        }
 
-private:
-    double price;
-    double amount;
-    std::string timestamp;
-    std::string product;
-    OrderBookType orderType;
+    public:
+        double price;
+        double amount;
+        std::string timestamp;
+        std::string product;
+        OrderBookType orderType;
 };
 
 
@@ -59,6 +59,13 @@ int main()
     //     processUserOption(userOption);  
     // }
 
+    //Define a vector named 'orders' to store instances of the 'OrderBookEntry' class.
+    std::vector<OrderBookEntry> orders;
+
+    //push an instance of the 'OrderBookEntry' class to the 'orders'
+    orders.push_back(OrderBookEntry{23594,0.00000033,"2020/03/17 17:01:24.884492","DOGE/BTC",OrderBookType::ask});
+
+    std::cout << orders[0].price << std::endl;
 
     return 0;
 }
