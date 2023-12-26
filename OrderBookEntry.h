@@ -3,7 +3,7 @@
 #include <string>
 
 //specifying a new data type for bid,ask
-enum class OrderBookType{bid,ask}; 
+enum class OrderBookType{bid,ask,unknown}; 
 
 //Define the class OrderBookEntry
 class OrderBookEntry
@@ -15,6 +15,8 @@ class OrderBookEntry
                     std::string timestamp, 
                     std::string product,
                     OrderBookType orderType);
+
+        static OrderBookType stringToOrderBookType(std::string s);
 
         double price;
         double amount;
