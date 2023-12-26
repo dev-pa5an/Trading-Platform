@@ -15,7 +15,26 @@ std::vector<OrderBookEntry> CSVReader::readCSV(std::string csvFile)
 
 std::vector<std::string> CSVReader::tokenise(std::string csvLine, char seperator)
 {
+
     std::vector<std::string> tokens;
+    signed int start, end;
+    std::string token;
+    start = csvLine.find_first_not_of(seperator, 0);
+    do
+    {
+        end = csvLine.find_first_of(seperator, start);
+        
+        if (start == csvLine.length() || start == end) break; //nothing more to find
+
+        if (end >= 0) token = csvLine.substr(start, end - start); //we found the seperator
+        else token = csvLine.substr(start, csvLine.length() - start);
+
+        tokens.push_back(token);
+
+        start = end + 1;
+
+    }while(end != std::string::npos);
+
     return tokens;
 }
 
