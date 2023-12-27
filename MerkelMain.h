@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "OrderBookEntry.h"
+#include "OrderBook.h"
 
 class MerkelMain
 {
@@ -20,5 +21,5 @@ class MerkelMain
         void printWallet();
         void goToNextWallet();
 
-        std::vector<OrderBookEntry> orders;
+        OrderBook orderBook{"20231224.csv"};        
 };
