@@ -11,20 +11,14 @@ MerkelMain::MerkelMain()
 
 void MerkelMain::init()
 {
+    int input;
     while (true)
     {
-        loadOrderBook();
         printMenu();
-        int input;
         input = getuserOption();
         processUserOption(input);
     }  
 }
-
-void MerkelMain::loadOrderBook()
-{
-    orders = CSVReader::readCSV("20231224.csv");                       
-};
 
 void MerkelMain::printMenu()
 {
@@ -60,21 +54,25 @@ void MerkelMain::printHelp()
 }
 void MerkelMain::printMarketStats()
 {
-    std::cout << "Order Book contains : " << orders.size() << std::endl;
-    unsigned int bids = 0;
-    unsigned int asks = 0;
-    for (OrderBookEntry& e : orders)
+    for (std::string const& p : orderBook.getKnownProducts())
     {
-        if (e.orderType == OrderBookType::bid)
-        {
-            ++bids;
-        }
-        if (e.orderType == OrderBookType::ask)
-        {
-            ++asks;
-        }
+        std::cout << "Product : " << p << std::endl;
     }
-    std::cout << "Total asks : " << asks << ", bids : "<< bids << std::endl;
+    // std::cout << "Order Book contains : " << orders.size() << std::endl;
+    // unsigned int bids = 0;
+    // unsigned int asks = 0;
+    // for (OrderBookEntry& e : orders)
+    // {
+    //     if (e.orderType == OrderBookType::bid)
+    //     {
+    //         ++bids;
+    //     }
+    //     if (e.orderType == OrderBookType::ask)
+    //     {
+    //         ++asks;
+    //     }
+    // }
+    // std::cout << "Total asks : " << asks << ", bids : "<< bids << std::endl;
 }
 void MerkelMain::enterAsk()
 {
