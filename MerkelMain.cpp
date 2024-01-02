@@ -89,7 +89,11 @@ void MerkelMain::printMarketStats()
 }
 void MerkelMain::enterAsk()
 {
-    std::cout << "Place an Ask: Enter details to make an ask on the exchange." << std::endl;
+    std::cout << "Place an Ask: Enter details to make an ask on the exchange : product,price,amount, eg: ETH/BTC,5400,0.5" << std::endl;
+    std::string input;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, input);
+    std::cout << "You typed : " << input << std::endl << std::endl;
 }
 void MerkelMain::enterBid()
 {

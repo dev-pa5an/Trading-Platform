@@ -10,7 +10,6 @@ class MerkelMain
         void init();
 
     private:
-        void loadOrderBook();
         void printMenu();
         int getuserOption();
         void printHelp();
@@ -20,6 +19,8 @@ class MerkelMain
         void enterBid();
         void printWallet();
         void goToNextWallet();
+
+        std::string currentTime;
 
         OrderBook orderBook{"20231224.csv"};        
 };
