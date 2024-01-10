@@ -45,9 +45,19 @@ void MerkelMain::printMenu()
 
 int MerkelMain::getuserOption()
 {
+    int userOption = 0;
+    std::string line;
     std::cout << "Type in 1-6" << std::endl;   
-    int userOption;
-    std::cin >> userOption;
+    std::getline(std::cin, line);
+    try
+    {
+        userOption = std::stoi(line);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
     std::cout << "You select " << userOption << std::endl;
 
     return userOption;
@@ -91,7 +101,6 @@ void MerkelMain::enterAsk()
 {
     std::cout << "Place an Ask: Enter details to make an ask on the exchange : product,price,amount, eg: ETH/BTC,5400,0.5" << std::endl;
     std::string input;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, input);
 
     std::vector<std::string> tokens = CSVReader::tokenise(input, ',');
@@ -102,11 +111,20 @@ void MerkelMain::enterAsk()
     }
     else 
     {
-        OrderBookEntry obe = CSVReader::stringsToOBE(   tokens[1],
+        try
+        {
+            OrderBookEntry obe = CSVReader::stringsToOBE(   tokens[1],
                                                     tokens[2],
                                                     currentTime,
                                                     tokens[0],
                                                     OrderBookType::ask);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << "MerkelMain::enterAsk Bad input!" << std::endl;
+        }
+        
+        
     }
 
     std::cout << "You typed : " << input << std::endl << std::endl;
