@@ -88,3 +88,9 @@ double OrderBook::getSpreadPrice(std::vector<OrderBookEntry>& orders)
     double spread = getHighPrice(orders) - getLowPrice(orders);
     return spread;
 }
+
+void OrderBook::insertOrder(OrderBookEntry& order)
+{
+    orders.push_back(order);
+    std::sort(orders.begin(), orders.end(), OrderBookEntry::compareByTimestamp);
+}
