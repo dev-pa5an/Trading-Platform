@@ -22,5 +22,5 @@ class MerkelMain
 
         std::string currentTime;
 
-        OrderBook orderBook{"20231224.csv"};        
+        OrderBook orderBook{"test.csv"};        
 };

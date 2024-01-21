@@ -81,21 +81,6 @@ void MerkelMain::printMarketStats()
 
     }
 
-    // std::cout << "Order Book contains : " << orders.size() << std::endl;
-    // unsigned int bids = 0;
-    // unsigned int asks = 0;
-    // for (OrderBookEntry& e : orders)
-    // {
-    //     if (e.orderType == OrderBookType::bid)
-    //     {
-    //         ++bids;
-    //     }
-    //     if (e.orderType == OrderBookType::ask)
-    //     {
-    //         ++asks;
-    //     }
-    // }
-    // std::cout << "Total asks : " << asks << ", bids : "<< bids << std::endl;
 }
 void MerkelMain::enterAsk()
 {
@@ -145,6 +130,11 @@ void MerkelMain::printWallet()
 void MerkelMain::goToNextWallet()
 {
     std::cout << "Continue: Proceed to the next step." << std::endl;
+    std::vector<OrderBookEntry> sales = orderBook.matchAsksToBids("ETH/BTC", currentTime);
+    for (OrderBookEntry& sale : sales)
+    {
+        std::cout << "Sale price: " << sale.price << " amount: " << sale.amount  << std::endl;
+    }
     currentTime = orderBook.getNextTime(currentTime);
 
 }
