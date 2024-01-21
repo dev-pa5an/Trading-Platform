@@ -102,4 +102,51 @@ std::vector<OrderBookEntry> OrderBook::matchAsksToBids(std::string product, std:
 
     //bids = OrderBook.bids
     std::vector<OrderBookEntry> bids = getOrders(OrderBookType::bid, product, timestamp);
+
+    //sales = []
+    std::vector<OrderBookEntry> sales;
+
+    //sort asks lowest first
+    std::sort(asks.begin(),  asks.end(), OrderBookEntry::compareByPriceAsc);
+
+    //sort bids highest first
+    std::sort(bids.begin(), bids.end(), OrderBookEntry::compareByPriceDesc);
+
+    //for ask in asks
+    for (OrderBookEntry& ask : asks)
+    {
+        //for bid in bids
+        for (OrderBookEntry& bid : bids)
+        {
+            if (bid.price >= ask.price)
+            {
+                OrderBookEntry sale{ask.price, 0, timestamp, product, OrderBookType::sale};
+
+                if (bid.amount == ask.amount)
+                {
+                    sale.amount = ask.amount;
+                    sales.push_back(sale);
+                    bid.amount = 0;
+                    break;
+                }
+                if (bid.amount > ask.amount)
+                {
+                    sale.amount = ask.amount;
+                    sales.push_back(sale);
+                    bid.amount = bid.amount - ask.amount;
+                    break;
+                }
+                if (bid.amount < ask.amount)
+                {
+                    sale.amount = bid.amount;
+                    sales.push_back(sale);
+                    ask.amount = ask.amount - bid.amount;
+                    bid.amount = 0;
+                    continue; //some asks remain go to the next bid
+                }
+            }
+            
+        }
+    }
+    return sales;
 }
