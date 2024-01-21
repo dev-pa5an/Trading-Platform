@@ -94,3 +94,12 @@ void OrderBook::insertOrder(OrderBookEntry& order)
     orders.push_back(order);
     std::sort(orders.begin(), orders.end(), OrderBookEntry::compareByTimestamp);
 }
+
+std::vector<OrderBookEntry> OrderBook::matchAsksToBids(std::string product, std::string timestamp)
+{
+    //asks = OrderBook.asks
+    std::vector<OrderBookEntry> asks = getOrders(OrderBookType::ask, product, timestamp);
+
+    //bids = OrderBook.bids
+    std::vector<OrderBookEntry> bids = getOrders(OrderBookType::bid, product, timestamp);
+}
