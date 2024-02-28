@@ -1,16 +1,11 @@
 # Trading-Platform
 
-In the csv file orderType can vary between "bid" and "ask" only
-Inorder to constraint that, defining something like a namespace for that using enum
+In the CSV file, the orderType can vary between "bid" and "ask" only. To constrain that, we can define an enum within a namespace.
 
-Best way to do this is not to difine the enum class in the main function but add as a header
+The best practice is not to define the enum class in the main function but to add it as a header file.
 
-we have lot of data to analyze 
-so we need a data structure to access these data
-introducing vectors
+Since we have a lot of data to analyze, we need a data structure to access these data, introducing vectors.
 
-Organize the OrderBookEntry class
-OrderBookEntry.h and OrderBookEntry.cpp
+Let's organize the OrderBookEntry class with separate header and implementation files, OrderBookEntry.h and OrderBookEntry.cpp.
 
-Refactoriing the functions - Encapsulation
-merkelMain.h and merkelMain.cpp
+We will also refactor the functions in merkelMain.h and merkelMain.cpp to improve encapsulation.
